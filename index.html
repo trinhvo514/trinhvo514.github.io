@@ -3,76 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hỗ trợ Ứng dụng - Võ Mai Trinh</title>
+  <title>Hỗ trợ ứng dụng - Võ Mai Trinh</title>
   <style>
     :root {
-      --primary: #ff9800;
-      --bg: #f8f9fa;
+      --primary: #ff7f32;
+      --bg: #fefefe;
       --text: #333;
-      --link: #007aff;
+      --gray: #666;
       --radius: 14px;
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
     }
 
     header {
-      background: linear-gradient(90deg, var(--primary), #ffb74d);
-      color: white;
       text-align: center;
-      padding: 40px 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      background: linear-gradient(135deg, var(--primary), #ffa94d);
+      color: white;
+      padding: 60px 20px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     }
 
     header h1 {
       margin: 0;
-      font-size: 2rem;
+      font-size: 2.4rem;
       font-weight: 700;
     }
 
     header p {
-      margin-top: 8px;
+      font-size: 1.1rem;
+      margin-top: 10px;
       opacity: 0.9;
     }
 
     main {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 30px 24px;
+      max-width: 850px;
+      margin: 50px auto;
+      padding: 30px;
       background: #fff;
       border-radius: var(--radius);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-    }
-
-    section {
-      margin-bottom: 32px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+      animation: fadeIn 0.6s ease-out;
     }
 
     h2 {
       color: var(--primary);
-      margin-bottom: 12px;
-      font-size: 1.3rem;
       border-left: 4px solid var(--primary);
-      padding-left: 10px;
-    }
-
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    li {
-      margin-bottom: 6px;
+      padding-left: 12px;
+      margin-top: 40px;
+      font-size: 1.4rem;
     }
 
     a {
-      color: var(--link);
+      color: #007aff;
       text-decoration: none;
     }
 
@@ -80,78 +72,109 @@
       text-decoration: underline;
     }
 
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
     footer {
       text-align: center;
-      font-size: 14px;
-      color: #666;
-      margin-top: 50px;
-      padding-bottom: 40px;
+      padding: 40px 20px;
+      background: #fafafa;
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-top: 60px;
+      border-top: 1px solid #eee;
     }
 
     footer a {
-      color: var(--link);
+      color: var(--primary);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .contact-card {
+      background: #fff5ec;
+      padding: 16px 20px;
+      border-radius: 12px;
+      border-left: 4px solid var(--primary);
+      margin-top: 10px;
+    }
+
+    .contact-card a {
+      display: inline-block;
+      margin-top: 4px;
+      color: var(--text);
     }
 
     @media (max-width: 600px) {
-      main {
-        margin: 20px;
-        padding: 20px;
-      }
+      main { margin: 20px; padding: 24px; }
+      header h1 { font-size: 1.8rem; }
     }
   </style>
 </head>
-
 <body>
   <header>
     <h1>Hỗ trợ Ứng dụng</h1>
-    <p>Trang chính thức của nhà phát triển Võ Mai Trinh</p>
+    <p>Trang chính thức của nhà phát triển <strong>Võ Mai Trinh</strong></p>
   </header>
 
   <main>
     <section>
       <h2>📱 Giới thiệu</h2>
-      <p>Chào mừng bạn đến với trang hỗ trợ chính thức của chúng tôi.  
-      Tại đây, bạn có thể tìm thấy thông tin liên hệ, chính sách bảo mật và điều khoản sử dụng cho các ứng dụng do <strong>Võ Mai Trinh</strong> phát hành trên App Store.</p>
+      <p>Chào mừng bạn đến với trang hỗ trợ chính thức cho các ứng dụng được phát hành bởi <strong>Võ Mai Trinh</strong>.  
+      Tại đây, người dùng có thể tìm thông tin hỗ trợ kỹ thuật, chính sách bảo mật và điều khoản sử dụng.</p>
     </section>
 
     <section>
       <h2>📞 Liên hệ hỗ trợ</h2>
-      <p>Nếu bạn cần giúp đỡ, hãy liên hệ với chúng tôi qua các kênh sau:</p>
-      <ul>
-        <li>📧 Email: <a href="mailto:rice.cover1@gmail.com">rice.cover1@gmail.com</a></li>
-        <li>💬 Zalo: <a href="https://zalo.me/0972664535" target="_blank">0972664535</a></li>
-        <li>📘 Facebook: <a href="https://www.facebook.com/trinh.vomai" target="_blank">facebook.com/trinh.vomai</a></li>
-      </ul>
-      <p>Chúng tôi sẽ phản hồi trong vòng 24 giờ làm việc.</p>
+      <div class="contact-card">
+        <ul>
+          <li>📧 Email: <a href="mailto:rice.cover1@gmail.com">rice.cover1@gmail.com</a></li>
+          <li>💬 Zalo: <a href="https://zalo.me/0972664535" target="_blank">0972664535</a></li>
+          <li>📘 Facebook: <a href="https://www.facebook.com/trinh.vomai" target="_blank">facebook.com/trinh.vomai</a></li>
+        </ul>
+      </div>
+      <p>Đội ngũ của chúng tôi sẽ phản hồi mọi yêu cầu trong vòng 24 giờ làm việc.</p>
     </section>
 
     <section>
       <h2>🔒 Chính sách bảo mật</h2>
-      <p>Chúng tôi cam kết bảo vệ thông tin người dùng.  
-      Ứng dụng không thu thập dữ liệu cá nhân ngoài những gì cần thiết để vận hành và hiển thị quảng cáo tuân thủ chính sách của Google AdMob và Apple.  
-      <br>👉 Xem chi tiết: <a href="/privacy-policy.html">Chính sách bảo mật</a></p>
+      <p>Ứng dụng không thu thập thông tin cá nhân ngoài dữ liệu cần thiết để đảm bảo hoạt động ổn định.  
+      Mọi dữ liệu quảng cáo tuân thủ theo chính sách của Google AdMob và Apple App Store.  
+      <br><a href="/privacy-policy.html">Xem chi tiết chính sách bảo mật →</a></p>
     </section>
 
     <section>
       <h2>📘 Điều khoản sử dụng</h2>
-      <p>Việc sử dụng ứng dụng đồng nghĩa với việc bạn đồng ý tuân thủ điều khoản do chúng tôi quy định.  
-      <br>👉 Xem chi tiết: <a href="/terms.html">Điều khoản sử dụng</a></p>
+      <p>Khi sử dụng ứng dụng, bạn đồng ý tuân thủ điều khoản của chúng tôi về quyền sử dụng và trách nhiệm người dùng.  
+      <br><a href="/terms.html">Xem chi tiết điều khoản sử dụng →</a></p>
     </section>
 
     <section>
-      <h2>🧾 Thông tin khác</h2>
+      <h2>🧾 Liên kết khác</h2>
       <ul>
-        <li><a href="/app-ads.txt" target="_blank">Xem file app-ads.txt</a> (Dành cho xác minh Google AdMob)</li>
-        <li><a href="https://apps.apple.com" target="_blank">Các ứng dụng khác của chúng tôi trên App Store</a></li>
+        <li><a href="/app-ads.txt" target="_blank">Xem file app-ads.txt</a> (xác minh Google AdMob)</li>
+        <li><a href="https://apps.apple.com" target="_blank">Xem các ứng dụng khác của chúng tôi trên App Store</a></li>
       </ul>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Võ Mai Trinh. Mọi quyền được bảo lưu. | 
-      <a href="/privacy-policy.html">Chính sách bảo mật</a> | 
-      <a href="/terms.html">Điều khoản sử dụng</a>
-    </p>
+    <p>© 2025 Võ Mai Trinh. Mọi quyền được bảo lưu.<br>
+    <a href="/privacy-policy.html">Chính sách bảo mật</a> | <a href="/terms.html">Điều khoản sử dụng</a></p>
   </footer>
 </body>
 </html>
