@@ -1,38 +1,135 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chính sách bảo mật - Võ Mai Trinh</title>
   <style>
-    body { font-family: Inter, sans-serif; margin: 0; padding: 0; background: #fefefe; color: #333; }
-    header { background: #ff7f32; color: #fff; text-align: center; padding: 50px 20px; }
-    main { max-width: 800px; margin: 40px auto; padding: 30px; background: #fff; border-radius: 14px; box-shadow: 0 4px 14px rgba(0,0,0,0.06); }
-    h1 { color: #ff7f32; border-left: 4px solid #ff7f32; padding-left: 10px; }
+    :root {
+      --primary: #ff7f32;
+      --primary-light: #ffb267;
+      --bg: #fffaf7;
+      --text: #2d2d2d;
+      --gray: #666;
+      --radius: 16px;
+    }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      text-align: center;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      padding: 80px 20px 60px;
+      position: relative;
+    }
+
+    header h1 { font-size: 2.4rem; font-weight: 800; margin-bottom: 10px; }
+    header p { font-size: 1.1rem; opacity: 0.95; }
+
+    main {
+      max-width: 850px;
+      margin: 50px auto;
+      padding: 32px;
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    h2 { color: var(--primary); border-left: 5px solid var(--primary); padding-left: 12px; }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 10px; }
+
     a { color: #007aff; text-decoration: none; }
     a:hover { text-decoration: underline; }
-    footer { text-align: center; font-size: 14px; color: #777; margin-top: 40px; padding-bottom: 30px; }
+
+    footer {
+      text-align: center;
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-top: 60px;
+      padding: 40px 20px;
+      border-top: 1px solid #eee;
+      background: #fff;
+    }
+
+    .lang-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      border-radius: 30px;
+      padding: 6px 14px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: background 0.2s;
+    }
+    .lang-toggle:hover { background: rgba(255,255,255,0.35); }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 <body>
   <header>
-    <h1>Chính sách bảo mật</h1>
-    <p>Cam kết bảo vệ quyền riêng tư người dùng</p>
+    <h1 data-vi="Chính sách bảo mật" data-en="Privacy Policy">Chính sách bảo mật</h1>
+    <p data-vi="Cam kết bảo vệ quyền riêng tư người dùng" data-en="Commitment to protecting user privacy">Cam kết bảo vệ quyền riêng tư người dùng</p>
+    <button class="lang-toggle" id="langBtn">EN</button>
   </header>
 
   <main>
-    <p>Ứng dụng được phát hành bởi <strong>Võ Mai Trinh</strong> cam kết tôn trọng và bảo vệ quyền riêng tư của người dùng.</p>
+    <p data-vi="Ứng dụng được phát hành bởi <strong>Võ Mai Trinh</strong> cam kết tôn trọng và bảo vệ quyền riêng tư của người dùng."
+       data-en="Applications developed by <strong>Võ Mai Trinh</strong> are committed to respecting and protecting users’ privacy.">
+       Ứng dụng được phát hành bởi <strong>Võ Mai Trinh</strong> cam kết tôn trọng và bảo vệ quyền riêng tư của người dùng.
+    </p>
+
     <ul>
-      <li>Chúng tôi không thu thập thông tin cá nhân như tên, địa chỉ hay danh bạ.</li>
-      <li>Dữ liệu ứng dụng (vị trí, cài đặt, ngôn ngữ...) chỉ được dùng để tối ưu trải nghiệm người dùng.</li>
-      <li>Quảng cáo (nếu có) tuân thủ chính sách của Google AdMob và Apple App Store.</li>
-      <li>Người dùng có thể yêu cầu xóa dữ liệu hoặc hỗ trợ qua email <a href="mailto:rice.cover1@gmail.com">rice.cover1@gmail.com</a>.</li>
+      <li data-vi="Chúng tôi không thu thập thông tin cá nhân như tên, địa chỉ hay danh bạ."
+          data-en="We do not collect personal data such as name, address, or contacts.">
+          Chúng tôi không thu thập thông tin cá nhân như tên, địa chỉ hay danh bạ.</li>
+
+      <li data-vi="Dữ liệu ứng dụng (vị trí, cài đặt, ngôn ngữ...) chỉ được dùng để tối ưu trải nghiệm người dùng."
+          data-en="App data (location, settings, language, etc.) is used only to improve user experience.">
+          Dữ liệu ứng dụng (vị trí, cài đặt, ngôn ngữ...) chỉ được dùng để tối ưu trải nghiệm người dùng.</li>
+
+      <li data-vi="Quảng cáo (nếu có) tuân thủ chính sách của Google AdMob và Apple App Store."
+          data-en="Any ads comply with Google AdMob and Apple App Store policies.">
+          Quảng cáo (nếu có) tuân thủ chính sách của Google AdMob và Apple App Store.</li>
+
+      <li data-vi="Người dùng có thể yêu cầu xóa dữ liệu hoặc hỗ trợ qua email"
+          data-en="Users may request data deletion or assistance via email">
+          Người dùng có thể yêu cầu xóa dữ liệu hoặc hỗ trợ qua email
+          <a href="mailto:rice.cover1@gmail.com">rice.cover1@gmail.com</a>.
+      </li>
     </ul>
-    <p><a href="/">← Quay lại trang hỗ trợ</a></p>
+
+    <p><a href="/" data-vi="← Quay lại trang hỗ trợ" data-en="← Back to Support Page">← Quay lại trang hỗ trợ</a></p>
   </main>
 
   <footer>
-    © 2025 Võ Mai Trinh | <a href="/terms.html">Điều khoản sử dụng</a>
+    © 2025 Võ Mai Trinh |
+    <a href="/terms.html" data-vi="Điều khoản sử dụng" data-en="Terms of Use">Điều khoản sử dụng</a>
   </footer>
+
+  <script>
+    const btn = document.getElementById('langBtn');
+    let current = 'vi';
+    btn.addEventListener('click', () => {
+      current = current === 'vi' ? 'en' : 'vi';
+      btn.textContent = current === 'vi' ? 'EN' : 'VI';
+      document.querySelectorAll('[data-vi]').forEach(el => {
+        el.innerHTML = el.getAttribute(`data-${current}`);
+      });
+    });
+  </script>
 </body>
 </html>
