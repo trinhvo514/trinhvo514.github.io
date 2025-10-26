@@ -3,23 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hỗ trợ ứng dụng - Võ Mai Trinh</title>
+  <title>Hỗ trợ Ứng dụng - Võ Mai Trinh</title>
+  <link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f5/0b/a6/f50ba61e-6b44-0781-bc7d-dd388dd29cdc/AppIcon-0-0-1x_U007ephone-0-1-sRGB-85-220.png/120x120bb.jpg">
   <style>
     :root {
       --primary: #ff7f32;
-      --bg: #fefefe;
-      --text: #333;
-      --gray: #666;
-      --radius: 14px;
+      --primary-light: #ffb267;
+      --bg: #fffaf7;
+      --text: #2d2d2d;
+      --gray: #6b6b6b;
+      --radius: 18px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      margin: 0;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -27,72 +26,129 @@
 
     header {
       text-align: center;
-      background: linear-gradient(135deg, var(--primary), #ffa94d);
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
       color: white;
-      padding: 60px 20px;
-      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      padding: 80px 20px 60px;
+      position: relative;
     }
 
     header h1 {
-      margin: 0;
-      font-size: 2.4rem;
-      font-weight: 700;
+      font-size: 2.6rem;
+      font-weight: 800;
     }
 
     header p {
       font-size: 1.1rem;
-      margin-top: 10px;
-      opacity: 0.9;
+      margin-top: 12px;
+      opacity: 0.95;
+    }
+
+    .lang-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      border-radius: 30px;
+      padding: 6px 14px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: background 0.2s;
+    }
+
+    .lang-toggle:hover {
+      background: rgba(255,255,255,0.35);
     }
 
     main {
-      max-width: 850px;
-      margin: 50px auto;
-      padding: 30px;
-      background: #fff;
-      border-radius: var(--radius);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 24px;
       animation: fadeIn 0.6s ease-out;
+    }
+
+    section {
+      margin-bottom: 60px;
     }
 
     h2 {
       color: var(--primary);
-      border-left: 4px solid var(--primary);
-      padding-left: 12px;
-      margin-top: 40px;
-      font-size: 1.4rem;
+      border-left: 5px solid var(--primary);
+      padding-left: 14px;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      font-weight: 700;
     }
 
-    a {
-      color: #007aff;
-      text-decoration: none;
+    .app-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 20px;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .app-card {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    ul {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
+    .app-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
     }
 
-    li {
+    .app-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+
+    .app-card h3 {
+      font-size: 1.2rem;
       margin-bottom: 6px;
+      text-align: center;
     }
 
-    section {
-      margin-bottom: 30px;
+    .app-card a {
+      display: inline-block;
+      margin-top: 8px;
+      background: var(--primary);
+      color: white;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .app-card a:hover {
+      background: #ff9c59;
+    }
+
+    .contact-card {
+      background: #fff5ec;
+      padding: 20px 24px;
+      border-radius: var(--radius);
+      border-left: 5px solid var(--primary);
+      margin-top: 14px;
+      line-height: 1.8;
     }
 
     footer {
       text-align: center;
       padding: 40px 20px;
-      background: #fafafa;
+      background: #fff;
       color: var(--gray);
       font-size: 0.9rem;
-      margin-top: 60px;
       border-top: 1px solid #eee;
     }
 
@@ -105,76 +161,117 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .contact-card {
-      background: #fff5ec;
-      padding: 16px 20px;
-      border-radius: 12px;
-      border-left: 4px solid var(--primary);
-      margin-top: 10px;
-    }
-
-    .contact-card a {
-      display: inline-block;
-      margin-top: 4px;
-      color: var(--text);
-    }
-
     @media (max-width: 600px) {
-      main { margin: 20px; padding: 24px; }
-      header h1 { font-size: 1.8rem; }
+      header h1 { font-size: 2rem; }
+      main { margin: 40px auto; }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Hỗ trợ Ứng dụng</h1>
-    <p>Trang chính thức của nhà phát triển <strong>Võ Mai Trinh</strong></p>
+    <h1 data-vi="Hỗ trợ Ứng dụng" data-en="App Support">Hỗ trợ Ứng dụng</h1>
+    <p data-vi="Trang chính thức của nhà phát triển Võ Mai Trinh" data-en="Official support site of developer Võ Mai Trinh">Trang chính thức của nhà phát triển Võ Mai Trinh</p>
+    <button class="lang-toggle" id="langBtn">EN</button>
   </header>
 
   <main>
     <section>
-      <h2>📱 Giới thiệu</h2>
-      <p>Chào mừng bạn đến với trang hỗ trợ chính thức cho các ứng dụng được phát hành bởi <strong>Võ Mai Trinh</strong>.  
-      Tại đây, người dùng có thể tìm thông tin hỗ trợ kỹ thuật, chính sách bảo mật và điều khoản sử dụng.</p>
-    </section>
+      <h2 data-vi="📱 Ứng dụng của chúng tôi" data-en="📱 Our Applications">📱 Ứng dụng của chúng tôi</h2>
+      <p data-vi="Dưới đây là các ứng dụng đang được phát hành và hỗ trợ chính thức bởi nhà phát triển Võ Mai Trinh."
+         data-en="Below are the officially supported apps developed by Võ Mai Trinh.">
+         Dưới đây là các ứng dụng đang được phát hành và hỗ trợ chính thức bởi nhà phát triển Võ Mai Trinh.
+      </p>
 
-    <section>
-      <h2>📞 Liên hệ hỗ trợ</h2>
-      <div class="contact-card">
-        <ul>
-          <li>📧 Email: <a href="mailto:rice.cover1@gmail.com">rice.cover1@gmail.com</a></li>
-          <li>💬 Zalo: <a href="https://zalo.me/0972664535" target="_blank">0972664535</a></li>
-          <li>📘 Facebook: <a href="https://www.facebook.com/trinh.vomai" target="_blank">facebook.com/trinh.vomai</a></li>
-        </ul>
+      <div class="app-list">
+        <div class="app-card">
+          <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/0b/f9/f8/0bf9f8b0-39df-408d-1988-063dc5e4a456/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/120x120bb.jpg" alt="Lịch Việt Nam">
+          <h3>Lịch Việt Nam - Thư Pháp</h3>
+          <p data-vi="Ứng dụng xem lịch âm, trực ngày, sao tốt xấu, việc nên làm."
+             data-en="Vietnamese lunar calendar with good/bad stars and daily guidance.">
+             Ứng dụng xem lịch âm, trực ngày, sao tốt xấu, việc nên làm.
+          </p>
+          <a href="https://apps.apple.com/us/app/l%E1%BB%8Bch-vi%E1%BB%87t-nam-th%C6%B0-ph%C3%A1p/id1528110967" target="_blank" data-vi="Xem trên App Store" data-en="View on App Store">Xem trên App Store</a>
+        </div>
+
+        <div class="app-card">
+          <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f5/0b/a6/f50ba61e-6b44-0781-bc7d-dd388dd29cdc/AppIcon-0-0-1x_U007ephone-0-1-sRGB-85-220.png/120x120bb.jpg" alt="Trạm sạc xe điện">
+          <h3>Trạm Sạc Gần Tôi</h3>
+          <p data-vi="Tìm kiếm trạm sạc xe điện gần nhất, chỉ đường & tính toán quãng đường."
+             data-en="Find nearby EV charging stations, get directions and range estimates.">
+             Tìm kiếm trạm sạc xe điện gần nhất, chỉ đường & tính toán quãng đường.
+          </p>
+          <a href="https://apps.apple.com/us/app/tr%E1%BA%A1m-s%E1%BA%A1c-g%E1%BA%A7n-t%C3%B4i/id6754314708" target="_blank" data-vi="Xem trên App Store" data-en="View on App Store">Xem trên App Store</a>
+        </div>
+
+        <div class="app-card">
+          <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8b/20/d8/8b20d829-d1aa-2eaa-23f9-3912dbf32f1b/AppIcon-0-0-1x_U007ephone-0-1-sRGB-85-220.png/120x120bb.jpg" alt="Chùa gần tôi">
+          <h3>Chùa Gần Tôi</h3>
+          <p data-vi="Tìm kiếm chùa xung quanh, xem thông tin chi tiết và chỉ đường."
+             data-en="Discover nearby temples, view details and navigate easily.">
+             Tìm kiếm chùa xung quanh, xem thông tin chi tiết và chỉ đường.
+          </p>
+          <a href="https://apps.apple.com/us/app/ch%C3%B9a-g%E1%BA%A7n-t%C3%B4i/id6753328741" target="_blank" data-vi="Xem trên App Store" data-en="View on App Store">Xem trên App Store</a>
+        </div>
       </div>
-      <p>Đội ngũ của chúng tôi sẽ phản hồi mọi yêu cầu trong vòng 24 giờ làm việc.</p>
+
+      <p style="margin-top:16px;color:var(--gray);font-style:italic;"
+         data-vi="🔸 Phiên bản Android đang trong quá trình duyệt và sẽ sớm có mặt trên Google Play."
+         data-en="🔸 Android version is under review and will be available soon on Google Play.">
+         🔸 Phiên bản Android đang trong quá trình duyệt và sẽ sớm có mặt trên Google Play.
+      </p>
     </section>
 
     <section>
-      <h2>🔒 Chính sách bảo mật</h2>
-      <p>Ứng dụng không thu thập thông tin cá nhân ngoài dữ liệu cần thiết để đảm bảo hoạt động ổn định.  
-      Mọi dữ liệu quảng cáo tuân thủ theo chính sách của Google AdMob và Apple App Store.  
-      <br><a href="/privacy-policy.html">Xem chi tiết chính sách bảo mật →</a></p>
+      <h2 data-vi="📞 Liên hệ hỗ trợ" data-en="📞 Contact Support">📞 Liên hệ hỗ trợ</h2>
+      <div class="contact-card">
+        <p>
+          📧 Email: <a href="mailto:rice.cover1@gmail.com">rice.cover1@gmail.com</a><br>
+          💬 Zalo: <a href="https://zalo.me/0972664535" target="_blank">0972664535</a><br>
+          📘 Facebook: <a href="https://www.facebook.com/trinh.vomai" target="_blank">facebook.com/trinh.vomai</a>
+        </p>
+      </div>
+      <p data-vi="Đội ngũ hỗ trợ sẽ phản hồi mọi yêu cầu trong vòng 24 giờ làm việc."
+         data-en="Our support team will respond within 24 business hours.">
+         Đội ngũ hỗ trợ sẽ phản hồi mọi yêu cầu trong vòng 24 giờ làm việc.
+      </p>
     </section>
 
     <section>
-      <h2>📘 Điều khoản sử dụng</h2>
-      <p>Khi sử dụng ứng dụng, bạn đồng ý tuân thủ điều khoản của chúng tôi về quyền sử dụng và trách nhiệm người dùng.  
-      <br><a href="/terms.html">Xem chi tiết điều khoản sử dụng →</a></p>
+      <h2 data-vi="🔒 Chính sách & Điều khoản" data-en="🔒 Privacy & Terms">🔒 Chính sách & Điều khoản</h2>
+      <p data-vi="Chúng tôi luôn tuân thủ quy định của Google và Apple về bảo mật dữ liệu người dùng."
+         data-en="We strictly comply with Google and Apple’s user data protection policies.">
+         Chúng tôi luôn tuân thủ quy định của Google và Apple về bảo mật dữ liệu người dùng.
+      </p>
+      <p><a href="/privacy-policy.html" data-vi="Xem Chính sách bảo mật →" data-en="View Privacy Policy →">Xem Chính sách bảo mật →</a><br>
+         <a href="/terms.html" data-vi="Xem Điều khoản sử dụng →" data-en="View Terms of Use →">Xem Điều khoản sử dụng →</a></p>
     </section>
 
     <section>
-      <h2>🧾 Liên kết khác</h2>
+      <h2 data-vi="🧾 Liên kết khác" data-en="🧾 Other Links">🧾 Liên kết khác</h2>
       <ul>
-        <li><a href="/app-ads.txt" target="_blank">Xem file app-ads.txt</a> (xác minh Google AdMob)</li>
-        <li><a href="https://apps.apple.com" target="_blank">Xem các ứng dụng khác của chúng tôi trên App Store</a></li>
+        <li><a href="/app-ads.txt" target="_blank" data-vi="Xem file app-ads.txt (xác minh Google AdMob)" data-en="View app-ads.txt (Google AdMob verification)">Xem file app-ads.txt (xác minh Google AdMob)</a></li>
+        <li><a href="https://apps.apple.com/us/developer/vo-mai-trinh/id1528110969" target="_blank" data-vi="Tất cả ứng dụng trên App Store" data-en="All apps on App Store">Tất cả ứng dụng trên App Store</a></li>
       </ul>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Võ Mai Trinh. Mọi quyền được bảo lưu.<br>
-    <a href="/privacy-policy.html">Chính sách bảo mật</a> | <a href="/terms.html">Điều khoản sử dụng</a></p>
+    <p>© 2025 Võ Mai Trinh.<br>
+    <a href="/privacy-policy.html" data-vi="Chính sách bảo mật" data-en="Privacy Policy">Chính sách bảo mật</a> | 
+    <a href="/terms.html" data-vi="Điều khoản sử dụng" data-en="Terms of Use">Điều khoản sử dụng</a></p>
   </footer>
+
+  <script>
+    const langBtn = document.getElementById('langBtn');
+    let currentLang = 'vi';
+
+    langBtn.addEventListener('click', () => {
+      currentLang = currentLang === 'vi' ? 'en' : 'vi';
+      langBtn.textContent = currentLang === 'vi' ? 'EN' : 'VI';
+      document.querySelectorAll('[data-vi]').forEach(el => {
+        el.innerHTML = el.getAttribute(`data-${currentLang}`);
+      });
+    });
+  </script>
 </body>
 </html>
