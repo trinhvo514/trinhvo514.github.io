@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chính sách bảo mật — Hôm Nay Tránh Gì | Võ Mai Trinh</title>
+  <meta name="description" content="Chính sách bảo mật chính thức cho ứng dụng Hôm Nay Tránh Gì (xem việc nên tránh theo lịch âm mỗi ngày), phát triển bởi Võ Mai Trinh." />
+  <style>
+    :root {
+      --primary: #ff7f32;
+      --primary-light: #ffb267;
+      --bg: #fffaf7;
+      --text: #2d2d2d;
+      --gray: #666;
+      --radius: 16px;
+    }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      text-align: center;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      padding: 80px 20px 60px;
+      position: relative;
+    }
+
+    header h1 { font-size: 2rem; font-weight: 800; margin-bottom: 10px; }
+    header .subtitle { font-size: 1.05rem; opacity: 0.95; max-width: 640px; margin: 0 auto; }
+
+    main {
+      max-width: 850px;
+      margin: 50px auto;
+      padding: 32px;
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    .meta {
+      font-size: 0.9rem;
+      color: var(--gray);
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #eee;
+    }
+
+    h2 { color: var(--primary); border-left: 5px solid var(--primary); padding-left: 12px; font-size: 1.25rem; margin-top: 28px; }
+    p { margin: 12px 0; }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 10px; }
+
+    a { color: #007aff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    footer {
+      text-align: center;
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-top: 60px;
+      padding: 40px 20px;
+      border-top: 1px solid #eee;
+      background: #fff;
+    }
+
+    .lang-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      border-radius: 30px;
+      padding: 6px 14px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: background 0.2s;
+    }
+    .lang-toggle:hover { background: rgba(255,255,255,0.35); }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 data-vi="Chính sách bảo mật — Hôm Nay Tránh Gì" data-en="Privacy Policy — Hom Nay Tranh Gi">Chính sách bảo mật — Hôm Nay Tránh Gì</h1>
+    <p class="subtitle"
+       data-vi="Ứng dụng tham khảo việc nên tránh theo lịch âm mỗi ngày, dựa trên can chi và trực ngày theo văn hóa dân gian Á Đông. Nhà phát triển: <strong>Võ Mai Trinh</strong>."
+       data-en="An app to reference what to avoid each day based on the lunar calendar, heavenly stems and earthly branches, and daily zodiac indicators in East Asian folk culture. Developer: <strong>Võ Mai Trinh</strong>.">
+       Ứng dụng tham khảo việc nên tránh theo lịch âm mỗi ngày, dựa trên can chi và trực ngày theo văn hóa dân gian Á Đông. Nhà phát triển: <strong>Võ Mai Trinh</strong>.
+    </p>
+    <button class="lang-toggle" id="langBtn" type="button">EN</button>
+  </header>
+
+  <main>
+    <div class="meta">
+      <p data-vi="<strong>Phạm vi:</strong> Chính sách này áp dụng cho ứng dụng di động <strong>Hôm Nay Tránh Gì</strong>, không áp dụng cho các sản phẩm khác trừ khi có ghi rõ."
+         data-en="<strong>Scope:</strong> This policy applies to the mobile app <strong>Hom Nay Tranh Gi</strong> and not to other products unless stated.">
+         <strong>Phạm vi:</strong> Chính sách này áp dụng cho ứng dụng di động <strong>Hôm Nay Tránh Gì</strong>, không áp dụng cho các sản phẩm khác trừ khi có ghi rõ.
+      </p>
+      <p data-vi="<strong>Cập nhật lần cuối:</strong> 21 tháng 4 năm 2026"
+         data-en="<strong>Last updated:</strong> April 21, 2026">
+         <strong>Cập nhật lần cuối:</strong> 21 tháng 4 năm 2026
+      </p>
+    </div>
+
+    <h2 data-vi="1. Chủ thể xử lý dữ liệu" data-en="1. Data controller">1. Chủ thể xử lý dữ liệu</h2>
+    <p data-vi="Ứng dụng <strong>Hôm Nay Tránh Gì</strong> do <strong>Võ Mai Trinh</strong> phát triển và phát hành. Mọi thắc mắc liên quan quyền riêng tư xin vui lòng liên hệ theo thông tin ở cuối trang."
+       data-en="<strong>Hom Nay Tranh Gi</strong> is developed and published by <strong>Võ Mai Trinh</strong>. For privacy-related questions, please use the contact details at the end of this page.">
+       Ứng dụng <strong>Hôm Nay Tránh Gì</strong> do <strong>Võ Mai Trinh</strong> phát triển và phát hành. Mọi thắc mắc liên quan quyền riêng tư xin vui lòng liên hệ theo thông tin ở cuối trang.
+    </p>
+
+    <h2 data-vi="2. Dữ liệu chúng tôi thu thập" data-en="2. Information we collect">2. Dữ liệu chúng tôi thu thập</h2>
+    <p data-vi="Hôm Nay Tránh Gì hướng đến trải nghiệm đơn giản, tinh gọn, dễ hiểu. Ứng dụng chủ yếu cung cấp nội dung tham khảo theo ngày và thường không yêu cầu bạn cung cấp nhiều dữ liệu cá nhân."
+       data-en="Hom Nay Tranh Gi is designed to be simple and easy to use. The app mainly provides daily reference content and typically does not require extensive personal data.">
+       Hôm Nay Tránh Gì hướng đến trải nghiệm đơn giản, tinh gọn, dễ hiểu. Ứng dụng chủ yếu cung cấp nội dung tham khảo theo ngày và thường không yêu cầu bạn cung cấp nhiều dữ liệu cá nhân.
+    </p>
+    <ul>
+      <li data-vi="<strong>Dữ liệu trên thiết bị:</strong> cài đặt ứng dụng hoặc tùy chọn hiển thị (nếu có), được lưu cục bộ để cải thiện trải nghiệm."
+          data-en="<strong>On-device data:</strong> app settings or display preferences (if any), stored locally to improve user experience.">
+          <strong>Dữ liệu trên thiết bị:</strong> cài đặt ứng dụng hoặc tùy chọn hiển thị (nếu có), được lưu cục bộ để cải thiện trải nghiệm.</li>
+      <li data-vi="<strong>Dữ liệu kỹ thuật cơ bản:</strong> loại thiết bị, phiên bản hệ điều hành, nhật ký lỗi (nếu phát sinh) để duy trì tính ổn định."
+          data-en="<strong>Basic technical data:</strong> device type, OS version, and crash logs (if any) to maintain app stability.">
+          <strong>Dữ liệu kỹ thuật cơ bản:</strong> loại thiết bị, phiên bản hệ điều hành, nhật ký lỗi (nếu phát sinh) để duy trì tính ổn định.</li>
+      <li data-vi="<strong>Không chủ đích thu thập</strong> thông tin nhận dạng nhạy cảm như giấy tờ cá nhân, danh bạ, tin nhắn riêng tư hoặc ảnh cá nhân chỉ để sử dụng chức năng chính của ứng dụng."
+          data-en="We do <strong>not</strong> intentionally collect sensitive identifying data such as personal IDs, contacts, private messages, or personal photos for core app functionality.">
+          <strong>Không chủ đích thu thập</strong> thông tin nhận dạng nhạy cảm như giấy tờ cá nhân, danh bạ, tin nhắn riêng tư hoặc ảnh cá nhân chỉ để sử dụng chức năng chính của ứng dụng.</li>
+    </ul>
+
+    <h2 data-vi="3. Dịch vụ bên thứ ba" data-en="3. Third-party services">3. Dịch vụ bên thứ ba</h2>
+    <p data-vi="Tùy phiên bản phát hành, ứng dụng có thể sử dụng dịch vụ bên thứ ba như phân tích hoặc quảng cáo. Các dịch vụ này có thể xử lý dữ liệu theo chính sách riêng của họ."
+       data-en="Depending on the release version, the app may use third-party services such as analytics or advertising. These services may process data under their own privacy policies.">
+       Tùy phiên bản phát hành, ứng dụng có thể sử dụng dịch vụ bên thứ ba như phân tích hoặc quảng cáo. Các dịch vụ này có thể xử lý dữ liệu theo chính sách riêng của họ.
+    </p>
+    <p data-vi='Bạn có thể tham khảo thêm <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Chính sách quyền riêng tư của Google</a>.'
+       data-en='You can also refer to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.'>
+       Bạn có thể tham khảo thêm <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Chính sách quyền riêng tư của Google</a>.
+    </p>
+
+    <h2 data-vi="4. Mục đích sử dụng dữ liệu" data-en="4. How we use information">4. Mục đích sử dụng dữ liệu</h2>
+    <ul>
+      <li data-vi="Hiển thị nội dung tham khảo theo ngày dựa trên lịch âm, can chi và trực ngày."
+          data-en="Provide daily reference content based on the lunar calendar, heavenly stems and earthly branches, and daily indicators.">Hiển thị nội dung tham khảo theo ngày dựa trên lịch âm, can chi và trực ngày.</li>
+      <li data-vi="Duy trì hiệu năng, sửa lỗi và nâng cao trải nghiệm sử dụng ứng dụng."
+          data-en="Maintain performance, fix bugs, and improve the user experience.">Duy trì hiệu năng, sửa lỗi và nâng cao trải nghiệm sử dụng ứng dụng.</li>
+    </ul>
+
+    <h2 data-vi="5. Lưu ý về nội dung tham khảo" data-en="5. Reference-only notice">5. Lưu ý về nội dung tham khảo</h2>
+    <p data-vi="Nội dung trong Hôm Nay Tránh Gì mang tính <strong>tham khảo</strong> theo văn hóa dân gian Á Đông, không phải là tư vấn pháp lý, y tế, tài chính hoặc chuyên môn bắt buộc. Người dùng tự cân nhắc trước khi ra quyết định quan trọng."
+       data-en="Content in Hom Nay Tranh Gi is for <strong>reference only</strong> based on East Asian folk traditions. It is not legal, medical, financial, or other professional advice. Users should make their own decisions for important matters.">
+       Nội dung trong Hôm Nay Tránh Gì mang tính <strong>tham khảo</strong> theo văn hóa dân gian Á Đông, không phải là tư vấn pháp lý, y tế, tài chính hoặc chuyên môn bắt buộc. Người dùng tự cân nhắc trước khi ra quyết định quan trọng.
+    </p>
+
+    <h2 data-vi="6. Quyền của bạn và liên hệ" data-en="6. Your rights and contact">6. Quyền của bạn và liên hệ</h2>
+    <p data-vi="Bạn có thể gỡ ứng dụng bất cứ lúc nào. Nếu cần hỗ trợ, hỏi về quyền riêng tư hoặc yêu cầu liên quan dữ liệu (nếu có dữ liệu được lưu trên hệ thống của chúng tôi), vui lòng liên hệ:"
+       data-en="You may uninstall the app at any time. For support, privacy questions, or data-related requests (where data is stored on our systems), please contact:">
+       Bạn có thể gỡ ứng dụng bất cứ lúc nào. Nếu cần hỗ trợ, hỏi về quyền riêng tư hoặc yêu cầu liên quan dữ liệu (nếu có dữ liệu được lưu trên hệ thống của chúng tôi), vui lòng liên hệ:
+    </p>
+    <p><a href="mailto:rice.cover1@gmail.com">rice.cover1@gmail.com</a></p>
+    <p data-vi='Trang hỗ trợ nhà phát triển: <a href="/">https://trinhvo514.github.io/</a>'
+       data-en='Developer support page: <a href="/">https://trinhvo514.github.io/</a>'>
+       Trang hỗ trợ nhà phát triển: <a href="/">https://trinhvo514.github.io/</a>
+    </p>
+
+    <h2 data-vi="7. Trẻ em" data-en="7. Children">7. Trẻ em</h2>
+    <p data-vi="Ứng dụng hướng đến người dùng phổ thông. Nếu bạn là phụ huynh và có lo ngại về dữ liệu liên quan trẻ em, vui lòng liên hệ để được hỗ trợ."
+       data-en="The app is intended for general audiences. If you are a parent and have concerns about child-related data, please contact us for support.">
+       Ứng dụng hướng đến người dùng phổ thông. Nếu bạn là phụ huynh và có lo ngại về dữ liệu liên quan trẻ em, vui lòng liên hệ để được hỗ trợ.
+    </p>
+
+    <h2 data-vi="8. Thay đổi chính sách" data-en="8. Changes to this policy">8. Thay đổi chính sách</h2>
+    <p data-vi="Chính sách này có thể được cập nhật khi ứng dụng thay đổi chức năng hoặc theo yêu cầu pháp lý. Ngày cập nhật mới nhất luôn được ghi ở đầu trang."
+       data-en="This policy may be updated when app features change or when required by law. The most recent update date is always shown at the top of this page.">
+       Chính sách này có thể được cập nhật khi ứng dụng thay đổi chức năng hoặc theo yêu cầu pháp lý. Ngày cập nhật mới nhất luôn được ghi ở đầu trang.
+    </p>
+
+    <p style="margin-top: 32px;">
+      <a href="/" data-vi="← Về trang hỗ trợ nhà phát triển" data-en="← Back to developer support">← Về trang hỗ trợ nhà phát triển</a>
+    </p>
+  </main>
+
+  <footer>
+    © 2026 Võ Mai Trinh · <strong>Hôm Nay Tránh Gì</strong> |
+    <a href="/terms.html" data-vi="Điều khoản sử dụng" data-en="Terms of Use">Điều khoản sử dụng</a>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('langBtn');
+    let current = 'vi';
+    btn.addEventListener('click', () => {
+      current = current === 'vi' ? 'en' : 'vi';
+      btn.textContent = current === 'vi' ? 'EN' : 'VI';
+      document.querySelectorAll('[data-vi]').forEach(el => {
+        el.innerHTML = el.getAttribute(`data-${current}`);
+      });
+    });
+  </script>
+</body>
+</html>
