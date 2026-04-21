@@ -8,178 +8,265 @@
   <style>
     :root {
       --primary: #ff7f32;
+      --primary-dark: #f06d20;
       --primary-light: #ffb267;
-      --bg: #fffaf7;
-      --text: #2d2d2d;
-      --gray: #6b6b6b;
-      --radius: 18px;
+      --bg: #f7f8fb;
+      --surface: #ffffff;
+      --surface-soft: #fff7f1;
+      --text: #1f2937;
+      --muted: #5f6673;
+      --border: #e8ecf3;
+      --radius: 20px;
       --store-ios: #007aff;
       --store-android: #34a853;
+      --shadow: 0 10px 30px rgba(24, 39, 75, 0.08);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
+      background:
+        radial-gradient(circle at 10% 0%, #fff1e7 0%, transparent 35%),
+        radial-gradient(circle at 90% 5%, #f4f8ff 0%, transparent 40%),
+        var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
 
     header {
       text-align: center;
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      background: linear-gradient(125deg, var(--primary), var(--primary-dark) 55%, var(--primary-light));
       color: white;
-      padding: 80px 20px 60px;
+      padding: 96px 20px 72px;
       position: relative;
+      overflow: hidden;
+    }
+
+    header::before,
+    header::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      opacity: 0.15;
+      pointer-events: none;
+      background: #fff;
+    }
+
+    header::before {
+      width: 220px;
+      height: 220px;
+      top: -90px;
+      left: -70px;
+    }
+
+    header::after {
+      width: 300px;
+      height: 300px;
+      right: -120px;
+      bottom: -170px;
     }
 
     header h1 {
-      font-size: 2.6rem;
+      font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 800;
+      letter-spacing: -0.03em;
     }
 
     header p {
-      font-size: 1.1rem;
-      margin-top: 12px;
-      opacity: 0.95;
+      max-width: 760px;
+      margin: 14px auto 0;
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      opacity: 0.96;
     }
 
     .lang-toggle {
       position: absolute;
-      top: 20px;
-      right: 20px;
-      background: rgba(255,255,255,0.2);
-      border: none;
-      border-radius: 30px;
-      padding: 6px 14px;
+      top: 22px;
+      right: 22px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.28);
+      border-radius: 999px;
+      padding: 8px 15px;
       color: white;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
-      backdrop-filter: blur(6px);
-      transition: background 0.2s;
+      backdrop-filter: blur(10px);
+      transition: all 0.2s ease;
     }
 
-    .lang-toggle:hover { background: rgba(255,255,255,0.35); }
+    .lang-toggle:hover {
+      background: rgba(255,255,255,0.27);
+      transform: translateY(-1px);
+    }
 
     main {
-      max-width: 1000px;
-      margin: 60px auto;
+      max-width: 1160px;
+      margin: -34px auto 64px;
       padding: 0 24px;
       animation: fadeIn 0.6s ease-out;
     }
 
-    section { margin-bottom: 60px; }
+    section {
+      margin-bottom: 36px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 30px;
+    }
 
     h2 {
-      color: var(--primary);
+      color: var(--text);
       border-left: 5px solid var(--primary);
       padding-left: 14px;
-      font-size: 1.5rem;
-      margin-bottom: 16px;
-      font-weight: 700;
+      font-size: 1.45rem;
+      margin-bottom: 18px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
     }
 
     .app-list {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-top: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 18px;
+      margin-top: 14px;
     }
 
     .app-card {
-      background: white;
+      background: linear-gradient(180deg, #ffffff 0%, #fcfdff 100%);
+      border: 1px solid var(--border);
       border-radius: var(--radius);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 8px 22px rgba(18, 40, 76, 0.05);
       padding: 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
     }
 
     .app-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+      box-shadow: 0 14px 30px rgba(18, 40, 76, 0.1);
     }
 
     .app-card img {
-      width: 80px;
-      height: 80px;
+      width: 76px;
+      height: 76px;
       border-radius: 20px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
+      object-fit: cover;
+      border: 1px solid #eef2f8;
     }
 
     .app-card h3 {
-      font-size: 1.2rem;
-      margin-bottom: 6px;
+      font-size: 1.24rem;
+      margin-bottom: 8px;
       text-align: center;
+      letter-spacing: -0.01em;
+    }
+
+    .app-card p {
+      color: var(--muted);
+      text-align: center;
+      min-height: 74px;
+      font-size: 0.98rem;
     }
 
     .app-links {
       display: flex;
-      gap: 10px;
-      margin-top: 10px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       justify-content: center;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      margin-top: 12px;
     }
 
     .app-btn {
+      flex: 1 1 0;
+      min-width: 0;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
-      padding: 8px 14px;
-      border-radius: 10px;
-      font-weight: 600;
-      color: white;
+      padding: 9px 12px;
+      border-radius: 11px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #fff;
       text-decoration: none;
-      transition: opacity 0.2s;
+      white-space: nowrap;
+      transition: transform 0.18s ease, opacity 0.18s ease, filter 0.18s ease;
     }
 
-    .app-btn:hover { opacity: 0.85; }
+    a.app-btn:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
 
-    .btn-ios { background: var(--store-ios); }
-    .btn-android { background: var(--store-android); }
+    .btn-ios { background: linear-gradient(180deg, #2b8dff 0%, var(--store-ios) 100%); }
+    .btn-android { background: linear-gradient(180deg, #42b861 0%, var(--store-android) 100%); }
 
     .btn-ios::before,
     .btn-android::before {
       display: inline-block;
       line-height: 1;
       font-weight: 700;
+      transform: translateY(-0.5px);
     }
 
     .btn-ios::before { content: ""; }
-    .btn-android::before { content: "▶"; font-size: 0.8em; }
+    .btn-android::before { content: "▶"; font-size: 0.82em; }
+
+    .app-note {
+      margin-top: 16px;
+      color: var(--muted);
+      font-style: italic;
+      font-size: 0.95rem;
+    }
 
     .contact-card {
-      background: #fff5ec;
-      padding: 20px 24px;
+      background: var(--surface-soft);
+      border: 1px solid #ffe7d6;
+      padding: 20px 22px;
       border-radius: var(--radius);
-      border-left: 5px solid var(--primary);
-      margin-top: 14px;
-      line-height: 1.8;
+      line-height: 1.85;
     }
+
+    .contact-card a {
+      color: var(--primary-dark);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .contact-card a:hover { text-decoration: underline; }
 
     footer {
       text-align: center;
-      padding: 40px 20px;
-      background: #fff;
-      color: var(--gray);
-      font-size: 0.9rem;
-      border-top: 1px solid #eee;
+      padding: 34px 20px 46px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      border-top: 1px solid var(--border);
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(2px);
     }
 
-    footer a { color: var(--primary); }
+    footer a { color: var(--primary-dark); }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 600px) {
-      header h1 { font-size: 2rem; }
-      main { margin: 40px auto; }
-      .app-links { flex-direction: column; }
+    @media (max-width: 780px) {
+      header { padding: 84px 16px 64px; }
+      main { margin: -24px auto 44px; padding: 0 14px; }
+      section { padding: 20px 16px; border-radius: 18px; }
+      .app-list { grid-template-columns: 1fr; gap: 14px; }
+      .app-card { padding: 18px 14px; }
+      .app-card p { min-height: auto; }
+      .app-btn { padding: 9px 8px; font-size: 0.98rem; }
     }
   </style>
 </head>
@@ -214,10 +301,13 @@
         <div class="app-card">
           <img src="/assets/icons/lichvietnam.png" alt="Lịch Việt Nam">
           <h3>Lịch Việt Nam - Thư Pháp</h3>
-          <p>Ứng dụng xem lịch âm, trực ngày, sao tốt xấu, việc nên làm.</p>
+          <p data-vi="Ứng dụng xem lịch âm, trực ngày, sao tốt xấu, việc nên làm."
+             data-en="A Vietnamese lunar calendar app with daily indicators, auspicious stars, and suggested activities.">
+             Ứng dụng xem lịch âm, trực ngày, sao tốt xấu, việc nên làm.
+          </p>
           <div class="app-links">
             <a href="https://apps.apple.com/us/app/l%E1%BB%8Bch-vi%E1%BB%87t-nam-th%C6%B0-ph%C3%A1p/id1528110967" target="_blank" class="app-btn btn-ios">App Store</a>
-            <a href="https://play.google.com/store/apps/details?id=com.vmt.lunarcalendar" target="_blank" class="app-btn btn-android">Google Play</a>
+            <span class="app-btn btn-android" style="opacity:0.55;cursor:default;" title="Chưa có trên Google Play — sẽ cập nhật sau">Google Play</span>
           </div>
         </div>
 
@@ -239,7 +329,10 @@
         <div class="app-card">
           <img src="/assets/icons/tramsacxedien.png" alt="Trạm Sạc Gần Tôi">
           <h3>Trạm Sạc Gần Tôi</h3>
-          <p>Tìm kiếm trạm sạc xe điện gần nhất, chỉ đường & tính toán quãng đường.</p>
+          <p data-vi="Tìm kiếm trạm sạc xe điện gần nhất, chỉ đường & tính toán quãng đường."
+             data-en="Find the nearest EV charging stations, navigate to them, and estimate travel distance.">
+             Tìm kiếm trạm sạc xe điện gần nhất, chỉ đường & tính toán quãng đường.
+          </p>
           <div class="app-links">
             <a href="https://apps.apple.com/us/app/tr%E1%BA%A1m-s%E1%BA%A1c-g%E1%BA%A7n-t%C3%B4i/id6754314708" class="app-btn btn-ios" target="_blank">App Store</a>
             <a href="https://play.google.com/store/apps/details?id=com.trinhvm.evcharging" class="app-btn btn-android" target="_blank">Google Play</a>
@@ -260,17 +353,31 @@
           </div>
         </div>
 
+        <!-- Hôm Nay Tránh Gì -->
+        <div class="app-card">
+          <img src="/assets/icons/avoidtoday.png" alt="Hôm Nay Tránh Gì">
+          <h3>Hôm Nay Tránh Gì</h3>
+          <p data-vi="Tham khảo việc nên tránh mỗi ngày theo lịch âm, can chi và trực ngày, đơn giản và dễ hiểu."
+             data-en="Check what to avoid each day based on lunar calendar references, heavenly stems and earthly branches, and daily indicators.">
+             Tham khảo việc nên tránh mỗi ngày theo lịch âm, can chi và trực ngày, đơn giản và dễ hiểu.
+          </p>
+          <div class="app-links">
+            <span class="app-btn btn-ios" style="opacity:0.55;cursor:default;" title="Sẽ cập nhật link sau">App Store</span>
+            <span class="app-btn btn-android" style="opacity:0.55;cursor:default;" title="Sẽ cập nhật link sau">Google Play</span>
+          </div>
+        </div>
+
 		<!-- Chợ BĐS -->
         <div class="app-card">
           <img src="/assets/icons/chobds.png" alt="Chợ BĐS">
           <h3>Chợ BĐS</h3>
           <p data-vi="Đăng tin bất động sản nhanh chóng, thuận tiện"
-             data-en="">
+             data-en="Post real estate listings quickly and conveniently.">
              Đăng tin bất động sản nhanh chóng, thuận tiện
           </p>
 			<div class="app-links">
 	            <a href="https://apps.apple.com/us/app/ch%E1%BB%A3-%C4%91%E1%BA%A5t/id1552661177" class="app-btn btn-ios" target="_blank">App Store</a>
-	            <a href="https://play.google.com/store/apps/details?id=com.vmt.evstation" class="app-btn btn-android" target="_blank">Google Play</a>
+	            <span class="app-btn btn-android" style="opacity:0.55;cursor:default;" title="Chưa có trên Google Play — sẽ cập nhật sau">Google Play</span>
           </div>
         </div>
 
@@ -279,12 +386,12 @@
           <img src="/assets/icons/qln.png" alt="Quản Lý Nợ">
           <h3>Quản Lý Nợ</h3>
           <p data-vi="Quản Lý Nợ – Theo dõi vay mượn dễ dàng, nhắc trả đúng hạn"
-             data-en="">
+             data-en="Track debts and loans easily with reminders for on-time repayments.">
              Quản Lý Nợ – Theo dõi vay mượn dễ dàng, nhắc trả đúng hạn
           </p>
 			<div class="app-links">
 	            <a href="https://apps.apple.com/us/app/qu%E1%BA%A3n-l%C3%BD-n%E1%BB%A3/id6754443028" class="app-btn btn-ios" target="_blank">App Store</a>
-	            <a href="https://play.google.com/store/apps/details?id=com.vmt.evstation" class="app-btn btn-android" target="_blank">Google Play</a>
+	            <span class="app-btn btn-android" style="opacity:0.55;cursor:default;" title="Chưa có trên Google Play — sẽ cập nhật sau">Google Play</span>
           </div>
         </div>
 		  
@@ -293,7 +400,7 @@
           <img src="/assets/icons/kanjiquest.png" alt="Kanji Quest">
           <h3>Kanji Quest</h3>
           <p data-vi="Kanji Quest – Khám phá Kanji theo cách dễ hiểu và hiệu quả nhất"
-             data-en="">
+             data-en="Discover Kanji in an easy and effective way with vivid examples and memory techniques.">
              Khám phá Kanji theo cách dễ hiểu và hiệu quả nhất
           </p>
 			<div class="app-links">
@@ -312,7 +419,7 @@
           </p>
 			<div class="app-links">
 	            <a href="https://apps.apple.com/us/app/bamboo-english/id1549617583" class="app-btn btn-ios" target="_blank">App Store</a>
-	            <a href="https://play.google.com/store/apps/details?id=com.vmt.evstation" class="app-btn btn-android" target="_blank">Google Play</a>
+	            <span class="app-btn btn-android" style="opacity:0.55;cursor:default;" title="Chưa có trên Google Play — sẽ cập nhật sau">Google Play</span>
           </div>
         </div>
 
@@ -325,7 +432,7 @@
           </p>
 			<div class="app-links">
 	            <a href="https://apps.apple.com/us/app/fast-pdf-generating/id6480110664" class="app-btn btn-ios" target="_blank">App Store</a>
-	            <a href="https://play.google.com/store/apps/details?id=com.vmt.evstation" class="app-btn btn-android" target="_blank">Google Play</a>
+	            <span class="app-btn btn-android" style="opacity:0.55;cursor:default;" title="Chưa có trên Google Play — sẽ cập nhật sau">Google Play</span>
           </div>
         </div>
 
@@ -338,12 +445,12 @@
           </p>
 			<div class="app-links">
 	            <a href="https://apps.apple.com/us/app/to-do-list-tracking/id6461050157" class="app-btn btn-ios" target="_blank">App Store</a>
-	            <a href="https://play.google.com/store/apps/details?id=com.vmt.evstation" class="app-btn btn-android" target="_blank">Google Play</a>
+	            <span class="app-btn btn-android" style="opacity:0.55;cursor:default;" title="Chưa có trên Google Play — sẽ cập nhật sau">Google Play</span>
           </div>
         </div>
       </div>
 
-      <p style="margin-top:16px;color:var(--gray);font-style:italic;">
+      <p class="app-note">
         🔸 Một số ứng dụng vẫn đang trong quá trình duyệt trên Google Play.
       </p>
     </section>
