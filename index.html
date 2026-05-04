@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Hỗ trợ Ứng dụng - Võ Mai Trinh</title>
   <link rel="icon" href="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f5/0b/a6/f50ba61e-6b44-0781-bc7d-dd388dd29cdc/AppIcon-0-0-1x_U007ephone-0-1-sRGB-85-220.png/120x120bb.jpg">
   <style>
@@ -24,6 +24,11 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
     body {
       font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background:
@@ -32,15 +37,27 @@
         var(--bg);
       color: var(--text);
       line-height: 1.6;
+      overflow-x: clip;
+      min-width: 0;
     }
 
     header {
       text-align: center;
       background: linear-gradient(125deg, var(--primary), var(--primary-dark) 55%, var(--primary-light));
       color: white;
-      padding: 96px 20px 72px;
+      padding-top: calc(96px + env(safe-area-inset-top, 0px));
+      padding-right: calc(20px + env(safe-area-inset-right, 0px));
+      padding-bottom: 72px;
+      padding-left: calc(20px + env(safe-area-inset-left, 0px));
       position: relative;
       overflow: hidden;
+    }
+
+    .header-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 100%;
+      margin-inline: auto;
     }
 
     header::before,
@@ -74,16 +91,89 @@
     }
 
     header p {
-      max-width: 760px;
+      max-width: min(760px, 100%);
       margin: 14px auto 0;
+      padding-inline: 4px;
       font-size: clamp(1rem, 2vw, 1.15rem);
       opacity: 0.96;
+      overflow-wrap: break-word;
+    }
+
+    .header-services {
+      margin-top: 28px;
+    }
+
+    .header-services-title {
+      font-size: clamp(0.78rem, 1.6vw, 0.88rem);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.88;
+      margin-bottom: 14px;
+    }
+
+    .header-services-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 22px;
+    }
+
+    .service-tile {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      min-width: 88px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .service-tile:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 4px;
+      border-radius: 14px;
+    }
+
+    .service-icon-card {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      color: #fff;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .service-tile:hover .service-icon-card {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.26);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+    }
+
+    .service-icon-card svg {
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+    }
+
+    .service-label {
+      font-size: clamp(0.88rem, 2vw, 0.98rem);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      opacity: 0.96;
+      line-height: 1.2;
     }
 
     .lang-toggle {
       position: absolute;
-      top: 22px;
-      right: 22px;
+      top: calc(22px + env(safe-area-inset-top, 0px));
+      right: calc(22px + env(safe-area-inset-right, 0px));
       background: rgba(255,255,255,0.18);
       border: 1px solid rgba(255,255,255,0.28);
       border-radius: 999px;
@@ -102,8 +192,12 @@
 
     main {
       max-width: 1160px;
+      width: 100%;
       margin: 24px auto 64px;
-      padding: 0 24px;
+      padding-left: max(24px, env(safe-area-inset-left, 0px));
+      padding-right: max(24px, env(safe-area-inset-right, 0px));
+      padding-top: 0;
+      padding-bottom: 0;
       animation: fadeIn 0.6s ease-out;
     }
 
@@ -120,15 +214,22 @@
       color: var(--text);
       border-left: 5px solid var(--primary);
       padding-left: 14px;
-      font-size: 1.45rem;
+      font-size: clamp(1.12rem, 4.2vw, 1.45rem);
       margin-bottom: 18px;
       font-weight: 800;
       letter-spacing: -0.01em;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+
+    #apps,
+    #support {
+      scroll-margin-top: max(20px, env(safe-area-inset-top, 0px));
     }
 
     .app-list {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
       gap: 18px;
       margin-top: 14px;
     }
@@ -160,10 +261,11 @@
     }
 
     .app-card h3 {
-      font-size: 1.24rem;
+      font-size: clamp(1.05rem, 3.5vw, 1.24rem);
       margin-bottom: 8px;
       text-align: center;
       letter-spacing: -0.01em;
+      overflow-wrap: break-word;
     }
 
     .app-card p {
@@ -171,6 +273,7 @@
       text-align: center;
       min-height: 74px;
       font-size: 0.98rem;
+      overflow-wrap: break-word;
     }
 
     .app-links {
@@ -243,6 +346,9 @@
       color: #fff;
       text-decoration: none;
       font-weight: 700;
+      max-width: 100%;
+      text-align: center;
+      flex-wrap: wrap;
     }
 
     .contact-card {
@@ -251,6 +357,8 @@
       padding: 20px 22px;
       border-radius: var(--radius);
       line-height: 1.85;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
 
     .contact-card a {
@@ -263,12 +371,19 @@
 
     footer {
       text-align: center;
-      padding: 34px 20px 46px;
+      padding: 34px max(20px, env(safe-area-inset-right, 0px)) calc(46px + env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px));
       color: var(--muted);
       font-size: 0.92rem;
       border-top: 1px solid var(--border);
       background: rgba(255,255,255,0.75);
       backdrop-filter: blur(2px);
+    }
+
+    footer p {
+      max-width: min(42rem, 100%);
+      margin-inline: auto;
+      line-height: 1.55;
+      overflow-wrap: break-word;
     }
 
     footer a { color: var(--primary-dark); }
@@ -279,25 +394,133 @@
     }
 
     @media (max-width: 780px) {
-      header { padding: 84px 16px 64px; }
-      main { margin: 16px auto 44px; padding: 0 14px; }
+      header {
+        padding-top: calc(84px + env(safe-area-inset-top, 0px));
+        padding-right: calc(16px + env(safe-area-inset-right, 0px));
+        padding-bottom: 64px;
+        padding-left: calc(16px + env(safe-area-inset-left, 0px));
+      }
+      .lang-toggle {
+        top: calc(16px + env(safe-area-inset-top, 0px));
+        right: calc(14px + env(safe-area-inset-right, 0px));
+      }
+      main {
+        margin: 16px auto 44px;
+        padding-left: max(14px, env(safe-area-inset-left, 0px));
+        padding-right: max(14px, env(safe-area-inset-right, 0px));
+      }
       section { padding: 20px 16px; border-radius: 18px; }
       .app-list { grid-template-columns: 1fr; gap: 14px; }
       .app-card { padding: 18px 14px; }
       .app-card p { min-height: auto; }
       .app-btn { padding: 9px 8px; font-size: 0.98rem; }
     }
+
+    @media (max-width: 480px) {
+      header {
+        padding-top: calc(78px + env(safe-area-inset-top, 0px));
+        padding-bottom: 56px;
+      }
+      .header-services { margin-top: 22px; }
+      .header-services-row { gap: 16px; }
+      h2 { padding-left: 10px; border-left-width: 4px; }
+    }
+
+    @media (max-width: 400px) {
+      .app-links {
+        flex-wrap: wrap;
+        align-items: stretch;
+      }
+      .app-btn {
+        flex: 1 1 calc(50% - 4px);
+        min-width: min(148px, 100%);
+      }
+    }
+
+    @media (max-width: 360px) {
+      .app-links {
+        flex-direction: column;
+      }
+      .app-btn {
+        flex: 1 1 auto;
+        width: 100%;
+        min-width: 0;
+      }
+      .view-all-btn {
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      main { animation: none; }
+      .app-card,
+      .app-btn,
+      .service-icon-card,
+      .lang-toggle,
+      .view-all-btn {
+        transition: none;
+      }
+      .app-card:hover,
+      .service-tile:hover .service-icon-card,
+      a.app-btn:hover,
+      .lang-toggle:hover {
+        transform: none;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1 data-vi="Hỗ trợ Ứng dụng" data-en="App Support">Hỗ trợ Ứng dụng</h1>
-    <p data-vi="Trang chính thức của nhà phát triển Võ Mai Trinh" data-en="Official support site of developer Võ Mai Trinh">Trang chính thức của nhà phát triển Võ Mai Trinh</p>
+    <div class="header-inner">
+      <h1 data-vi="Hỗ trợ Ứng dụng" data-en="App Support">Hỗ trợ Ứng dụng</h1>
+      <p data-vi="Trang chính thức của nhà phát triển Võ Mai Trinh" data-en="Official support site of developer Võ Mai Trinh">Trang chính thức của nhà phát triển Võ Mai Trinh</p>
+
+      <div class="header-services" role="navigation" aria-label="Dịch vụ">
+        <p class="header-services-title" data-vi="Dịch vụ" data-en="Services">Dịch vụ</p>
+        <div class="header-services-row">
+          <a href="#apps"
+             class="service-tile"
+             data-title-vi="Sản phẩm — ứng dụng"
+             data-title-en="Products — apps"
+             data-aria-vi="Xem danh sách ứng dụng"
+             data-aria-en="Browse our applications"
+             title="Sản phẩm — ứng dụng"
+             aria-label="Xem danh sách ứng dụng">
+            <span class="service-icon-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="7" height="7" rx="1.6"/>
+                <rect x="14" y="3" width="7" height="7" rx="1.6"/>
+                <rect x="3" y="14" width="7" height="7" rx="1.6"/>
+                <rect x="14" y="14" width="7" height="7" rx="1.6"/>
+              </svg>
+            </span>
+            <span class="service-label" data-vi="Product" data-en="Product">Product</span>
+          </a>
+          <a href="#support"
+             class="service-tile"
+             data-title-vi="Outsource — liên hệ"
+             data-title-en="Outsourcing — contact"
+             data-aria-vi="Outsource app mobile — mở mục liên hệ"
+             data-aria-en="Mobile app outsourcing — open contact"
+             title="Outsource — liên hệ"
+             aria-label="Outsource app mobile — mở mục liên hệ">
+            <span class="service-icon-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M8 3H7a4 4 0 0 0-4 4v1a2 2 0 0 1-2 2 2 2 0 0 1 2 2v1a4 4 0 0 0 4 4h1"/>
+                <path d="M16 21h1a4 4 0 0 0 4-4v-1a2 2 0 0 1 2-2 2 2 0 0 1-2-2v-1a4 4 0 0 0-4-4h-1"/>
+              </svg>
+            </span>
+            <span class="service-label" data-vi="Outsource" data-en="Outsource">Outsource</span>
+          </a>
+        </div>
+      </div>
+    </div>
     <button class="lang-toggle" id="langBtn">EN</button>
   </header>
 
   <main>
-    <section>
+    <section id="apps">
       <h2 data-vi="📱 Ứng dụng của chúng tôi" data-en="📱 Our Applications">📱 Ứng dụng của chúng tôi</h2>
 
       <div class="app-list">
@@ -393,7 +616,7 @@
     </section>
 
 	      
-	  <section>
+	  <section id="support">
   <h2 data-vi="📞 Thông tin hỗ trợ" data-en="📞 Support Information">📞 Thông tin hỗ trợ</h2>
 
   <div class="contact-card">
@@ -432,12 +655,32 @@
   <script>
     const langBtn = document.getElementById('langBtn');
     let currentLang = 'vi';
-    langBtn.addEventListener('click', () => {
-      currentLang = currentLang === 'vi' ? 'en' : 'vi';
-      langBtn.textContent = currentLang === 'vi' ? 'EN' : 'VI';
+
+    function applyLang(lang) {
+      currentLang = lang;
+      langBtn.textContent = lang === 'vi' ? 'EN' : 'VI';
       document.querySelectorAll('[data-vi]').forEach(el => {
-        el.innerHTML = el.getAttribute(`data-${currentLang}`);
+        const t = el.getAttribute(`data-${lang}`);
+        if (t != null) el.innerHTML = t;
       });
+      document.querySelectorAll('[data-title-vi]').forEach(el => {
+        const t = el.getAttribute(`data-title-${lang}`);
+        if (t != null) el.setAttribute('title', t);
+      });
+      document.querySelectorAll('[data-aria-vi]').forEach(el => {
+        const a = el.getAttribute(`data-aria-${lang}`);
+        if (a != null) el.setAttribute('aria-label', a);
+      });
+      const nav = document.querySelector('.header-services[role="navigation"]');
+      if (nav) {
+        const lbl = lang === 'vi' ? 'Dịch vụ' : 'Services';
+        nav.setAttribute('aria-label', lbl);
+      }
+    }
+
+    applyLang('vi');
+    langBtn.addEventListener('click', () => {
+      applyLang(currentLang === 'vi' ? 'en' : 'vi');
     });
   </script>
 </body>

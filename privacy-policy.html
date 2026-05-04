@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Chính sách bảo mật - Võ Mai Trinh</title>
   <style>
     :root {
@@ -14,33 +14,58 @@
       --radius: 16px;
     }
 
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
     body {
       font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       margin: 0;
       background: var(--bg);
       color: var(--text);
       line-height: 1.7;
+      overflow-x: clip;
+      min-width: 0;
     }
 
     header {
       text-align: center;
       background: linear-gradient(135deg, var(--primary), var(--primary-light));
       color: white;
-      padding: 80px 20px 60px;
+      padding-top: calc(80px + env(safe-area-inset-top, 0px));
+      padding-right: calc(20px + env(safe-area-inset-right, 0px));
+      padding-bottom: 60px;
+      padding-left: calc(20px + env(safe-area-inset-left, 0px));
       position: relative;
     }
 
-    header h1 { font-size: 2.4rem; font-weight: 800; margin-bottom: 10px; }
-    header p { font-size: 1.1rem; opacity: 0.95; }
+    header h1 {
+      font-size: clamp(1.35rem, 5.5vw, 2.4rem);
+      font-weight: 800;
+      margin-bottom: 10px;
+      overflow-wrap: break-word;
+    }
+
+    header p {
+      font-size: clamp(0.95rem, 3.2vw, 1.1rem);
+      opacity: 0.95;
+      max-width: min(36rem, 100%);
+      margin-inline: auto;
+      overflow-wrap: break-word;
+    }
 
     main {
       max-width: 850px;
+      width: min(100%, 850px);
       margin: 50px auto;
-      padding: 32px;
+      padding: 32px max(32px, env(safe-area-inset-right, 0px)) 32px max(32px, env(safe-area-inset-left, 0px));
       background: #fff;
       border-radius: var(--radius);
       box-shadow: 0 8px 24px rgba(0,0,0,0.05);
       animation: fadeIn 0.6s ease-out;
+      box-sizing: border-box;
+      overflow-wrap: break-word;
     }
 
     h2 { color: var(--primary); border-left: 5px solid var(--primary); padding-left: 12px; }
@@ -55,15 +80,22 @@
       color: var(--gray);
       font-size: 0.9rem;
       margin-top: 60px;
-      padding: 40px 20px;
+      padding: 40px max(20px, env(safe-area-inset-right, 0px)) calc(40px + env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px));
       border-top: 1px solid #eee;
       background: #fff;
+      overflow-wrap: break-word;
+    }
+
+    footer p {
+      max-width: min(40rem, 100%);
+      margin-inline: auto;
+      overflow-wrap: break-word;
     }
 
     .lang-toggle {
       position: absolute;
-      top: 20px;
-      right: 20px;
+      top: calc(20px + env(safe-area-inset-top, 0px));
+      right: calc(20px + env(safe-area-inset-right, 0px));
       background: rgba(255,255,255,0.2);
       border: none;
       border-radius: 30px;
@@ -77,6 +109,26 @@
     .lang-toggle:hover { background: rgba(255,255,255,0.35); }
 
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 640px) {
+      main {
+        margin: 24px 12px;
+        padding: 22px 16px;
+        border-radius: 12px;
+      }
+      header {
+        padding-top: calc(68px + env(safe-area-inset-top, 0px));
+        padding-bottom: 44px;
+      }
+      .lang-toggle {
+        top: calc(14px + env(safe-area-inset-top, 0px));
+        right: calc(14px + env(safe-area-inset-right, 0px));
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      main { animation: none; }
+    }
   </style>
 </head>
 <body>

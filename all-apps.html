@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Tất cả ứng dụng - Võ Mai Trinh</title>
   <style>
     :root {
@@ -19,6 +19,11 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
     body {
       font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background:
@@ -26,13 +31,18 @@
         radial-gradient(circle at 95% 8%, #f4f8ff 0%, transparent 38%),
         var(--bg);
       color: var(--text);
+      overflow-x: clip;
+      min-width: 0;
     }
 
     header {
       background: linear-gradient(125deg, var(--primary), var(--primary-dark) 58%, #ffb267 100%);
       color: #fff;
       text-align: center;
-      padding: 92px 16px 62px;
+      padding-top: calc(92px + env(safe-area-inset-top, 0px));
+      padding-right: calc(16px + env(safe-area-inset-right, 0px));
+      padding-bottom: 62px;
+      padding-left: calc(16px + env(safe-area-inset-left, 0px));
       position: relative;
       overflow: hidden;
     }
@@ -70,12 +80,16 @@
       margin-top: 12px;
       opacity: 0.96;
       font-size: clamp(0.98rem, 2vw, 1.1rem);
+      max-width: min(40rem, 100%);
+      margin-inline: auto;
+      overflow-wrap: break-word;
+      padding-inline: 4px;
     }
 
     .lang-toggle {
       position: absolute;
-      top: 20px;
-      right: 20px;
+      top: calc(20px + env(safe-area-inset-top, 0px));
+      right: calc(20px + env(safe-area-inset-right, 0px));
       background: rgba(255,255,255,0.2);
       border: 1px solid rgba(255,255,255,0.24);
       border-radius: 999px;
@@ -87,8 +101,10 @@
 
     main {
       max-width: 1100px;
+      width: 100%;
       margin: 22px auto 52px;
-      padding: 0 16px;
+      padding-left: max(16px, env(safe-area-inset-left, 0px));
+      padding-right: max(16px, env(safe-area-inset-right, 0px));
     }
 
     .panel {
@@ -97,6 +113,7 @@
       border-radius: 18px;
       box-shadow: 0 10px 30px rgba(24, 39, 75, 0.08);
       overflow: hidden;
+      max-width: 100%;
     }
 
     .apps-row {
@@ -111,13 +128,20 @@
     .apps-row:last-child { border-bottom: none; }
     .apps-row img { width: 44px; height: 44px; border-radius: 10px; object-fit: cover; }
 
-    .app-name { font-size: 1rem; font-weight: 700; color: var(--text); }
+    .app-name {
+      font-size: clamp(0.92rem, 2.8vw, 1rem);
+      font-weight: 700;
+      color: var(--text);
+      overflow-wrap: break-word;
+      min-width: 0;
+    }
 
     .store-links {
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
       gap: 8px;
-      white-space: nowrap;
     }
 
     .app-btn {
@@ -125,13 +149,16 @@
       align-items: center;
       justify-content: center;
       gap: 6px;
-      min-width: 126px;
+      min-width: min(126px, 100%);
+      flex: 0 1 auto;
+      max-width: 100%;
       padding: 8px 12px;
       border-radius: 10px;
       color: #fff;
       text-decoration: none;
       font-size: 0.95rem;
       font-weight: 700;
+      box-sizing: border-box;
     }
 
     .btn-ios { background: linear-gradient(180deg, #2b8dff 0%, var(--store-ios) 100%); }
@@ -148,8 +175,21 @@
     }
 
     @media (max-width: 780px) {
-      header { padding: 82px 14px 52px; }
-      main { margin: 14px auto 36px; }
+      header {
+        padding-top: calc(82px + env(safe-area-inset-top, 0px));
+        padding-right: calc(14px + env(safe-area-inset-right, 0px));
+        padding-bottom: 52px;
+        padding-left: calc(14px + env(safe-area-inset-left, 0px));
+      }
+      .lang-toggle {
+        top: calc(14px + env(safe-area-inset-top, 0px));
+        right: calc(14px + env(safe-area-inset-right, 0px));
+      }
+      main {
+        margin: 14px auto 36px;
+        padding-left: max(14px, env(safe-area-inset-left, 0px));
+        padding-right: max(14px, env(safe-area-inset-right, 0px));
+      }
 
       .apps-row {
         grid-template-columns: 44px 1fr;
@@ -158,14 +198,38 @@
 
       .store-links {
         grid-column: 1 / -1;
-        justify-content: flex-end;
+        justify-content: stretch;
       }
 
       .app-btn {
-        min-width: 118px;
+        min-width: 0;
+        flex: 1 1 calc(50% - 4px);
         padding: 8px 9px;
         font-size: 0.92rem;
       }
+    }
+
+    @media (max-width: 380px) {
+      .apps-row {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .store-links {
+        width: 100%;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .app-btn {
+        width: 100%;
+        max-width: 280px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .lang-toggle { transition: none; }
     }
   </style>
 </head>
