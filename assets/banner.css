@@ -1,16 +1,20 @@
-/* Shared banner — full image height, no crop */
+/* Shared banner — full image via <img>, natural height */
 body > header {
   display: block;
-  width: 100%;
-  aspect-ratio: 1774 / 887;
-  min-height: unset !important;
-  max-height: none;
   padding: 0 !important;
   margin: 0;
-  border: none;
-  background: url("/assets/icons/banner.png") center center / 100% 100% no-repeat !important;
-  overflow: hidden;
+  line-height: 0;
+  background: none !important;
+  overflow: visible;
   position: relative;
+}
+
+body > header .site-banner {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  vertical-align: top;
 }
 
 body > header::before,
@@ -18,6 +22,7 @@ body > header::after {
   display: none !important;
 }
 
-body > header > * {
+/* Hide legacy header text; keep banner image */
+body > header > *:not(.site-banner) {
   display: none !important;
 }
