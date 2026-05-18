@@ -1,28 +1,17 @@
-/* Shared banner background for all pages */
+/* Shared banner — image only, no overlay or header text */
 body > header {
   background: url("/assets/icons/banner.png") center / cover no-repeat !important;
   overflow: hidden;
   position: relative;
+  padding: 0 !important;
+  min-height: clamp(140px, 28vw, 220px);
 }
 
-/* Remove old decorative circles where present */
 body > header::before,
 body > header::after {
   display: none !important;
 }
 
-body > header .header-inner,
-body > header h1,
-body > header p,
-body > header .subtitle,
-body > header .header-services,
-body > header .header-services-title,
-body > header .service-label {
-  position: relative;
-  z-index: 1;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
-}
-
-body > header .lang-toggle {
-  z-index: 2;
+body > header > * {
+  display: none !important;
 }
