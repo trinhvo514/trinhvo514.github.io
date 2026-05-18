@@ -1,10 +1,16 @@
-/* Shared banner — image only, no overlay or header text */
+/* Shared banner — full image height, no crop */
 body > header {
-  background: url("/assets/icons/banner.png") center / cover no-repeat !important;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1774 / 887;
+  min-height: unset !important;
+  max-height: none;
+  padding: 0 !important;
+  margin: 0;
+  border: none;
+  background: url("/assets/icons/banner.png") center center / 100% 100% no-repeat !important;
   overflow: hidden;
   position: relative;
-  padding: 0 !important;
-  min-height: clamp(140px, 28vw, 220px);
 }
 
 body > header::before,
