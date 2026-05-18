@@ -1,13 +1,6 @@
 /* Shared banner background for all pages */
 body > header {
-  background:
-    linear-gradient(
-      125deg,
-      rgba(255, 127, 50, 0.78) 0%,
-      rgba(240, 109, 32, 0.82) 55%,
-      rgba(255, 178, 103, 0.76) 100%
-    ),
-    url("/assets/icons/banner.png") center / cover no-repeat !important;
+  background: url("/assets/icons/banner.png") center / cover no-repeat !important;
   overflow: hidden;
   position: relative;
 }
@@ -22,9 +15,12 @@ body > header .header-inner,
 body > header h1,
 body > header p,
 body > header .subtitle,
-body > header .header-services {
+body > header .header-services,
+body > header .header-services-title,
+body > header .service-label {
   position: relative;
   z-index: 1;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
 
 body > header .lang-toggle {
